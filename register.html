@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.min.css">
+
     <!-- Favicon-->
     <!-- <link rel="shortcut icon" href="img/favicon.ico"> -->
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -136,6 +138,7 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/sweetalert/sweetalert.min.js"></script>
 
     <script>
         
@@ -165,7 +168,7 @@
               else{
                 $.ajax({
                     //url: 'http://www.epreuve.in/check_email.php',
-                    url: 'check_email.php',
+                    url: 'apis/check_email.php',
                     type: 'post',
                     data:link_email,
                     success: function(response) {
@@ -179,10 +182,10 @@
          $(document).ready(function(){
             $("#signup").click(function(){
                   //fbq('track', 'CompleteRegistration');
-               var user_data="name="+$("#register-username").val()+"&email="+$("#register-email").val()+"&loc="+$("#register-loc").val()+"&pass="+$("#register-password").val()+"&disease="+$("#disease").val()+"&phone="+$("#phone").val()+"&age="+$("#age").val();
+               var user_data="name="+$("#register-username").val()+"&email="+$("#register-email").val()+"&loc="+$("#register-loc").val()+"&pass="+$("#register-password").val()+"&cpass="+$("#register-cpassword").val()+"&disease="+$("#disease").val()+"&phone="+$("#phone").val()+"&age="+$("#age").val();
                console.log(user_data);
               $.ajax({
-                    url: 'signup_action.php',
+                    url: 'apis/signup_action.php',
                     data:user_data,
                     type: 'post',
                     success: function(response) {
@@ -199,34 +202,34 @@
                             text: "Thanks",
                             type: "success"
                         }, function() {
-                            window.location = "login.php";
+                            window.location = "login.html";
                         });
                     }, 1000);
                     return true;
                   }
                 else if (dataArr["status"]=="something wrong") 
                 {
-                  $("#error").html("<div style=\"background-color:#ff6666;height:40px;padding : 6px;color:white;\">Something went wrong. Please try again..</div>");
+                  $("#error").html("<div style=\"color:red;\">something went wrong.Please try again</div>");
                 return false;
                 }
                 else if (dataArr["status"]=="username exists") 
                 {
-                 $("#error").html("<div style=\"background-color:#ff6666;height:40px;padding : 6px;color:white;\">Username already exists</div>");
+                 $("#error").html("<div style=\"color:red;\">Username already exists</div>");
                 return false; 
                 }
                 else if (dataArr["status"]=="email exists") 
                 {
-                 $("#error").html("<div style=\"background-color:#ff6666;height:40px;padding : 6px;color:white;\">Email already exists</div>");
+                 $("#error").html("<div style=\"color:red;\">Email already exists</div>");
                 return false; 
                 }
                 else if (dataArr["status"]=="password not match") 
                 {
-                 $("#error").html("<div style=\"background-color:#ff6666;height:40px;padding : 6px;color:white;\">Password didn't match</div>");
+                 $("#error").html("<div style=\"color:red;\">Password didn't match</div>");
                 return false; 
                 }
                 else if (dataArr["status"]=="field empty") 
                 {
-                 $("#error").html("<div style=\"background-color:#ff6666;height:40px;padding : 6px;color:white;\">Fields cannot be empty</div>");
+                 $("#error").html("<div style=\"color:red;\">Fields cannot be empty</div>");
                 return false; 
                 }
 
