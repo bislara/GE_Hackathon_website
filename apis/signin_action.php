@@ -20,6 +20,7 @@ $passwor=$_POST['pass'];
         if(mysqli_num_rows($query1_run)>0)
         {  
                 $_SESSION['user'] = $query_row['username'];
+                $_SESSION['login']=1;
                 $_SESSION['email']=$query_row['email'];
                 session_regenerate_id(true);
                 echo 'success';
