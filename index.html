@@ -635,7 +635,7 @@
 
         var xVal = 0;
         var yVal = 100; 
-        var updateInterval = 100;
+        var updateInterval = 1000;
         var dataLength = 100; // number of dataPoints visible at any point
         var threshold=150;
         var updateChart = function (count) {
@@ -654,7 +654,7 @@
                         limit: "limit crossed"
                     },
                     success: function(response) {
-                        console.log(response);
+                        // console.log(response);
                         if (response == "limit crossed")
                         {
                             console.log(response);
@@ -666,6 +666,27 @@
                     }
                 });
 
+            }
+            else
+            {
+                $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        limit: "all fine"
+                    },
+                    success: function(response) {
+                        // console.log(response);
+                        if (response == "all fine")
+                        {
+                            console.log(response);
+                        }
+                        else
+                        {
+                           console.log("didnt get response");
+                        }
+                    }
+                });
             }
 
             dps.push({

@@ -30,6 +30,16 @@
     bottom: 60vh;
     left: 50.5vw;
 }
+#all_open{
+	position: absolute;
+    bottom: 75vh;
+    left: 10vw;
+}
+#all_close{
+	position: absolute;
+    bottom: 75vh;
+    left: 61vw;
+}
 
 
 @media (max-width: 700px) {
@@ -64,5 +74,15 @@
 			position: absolute;
 		    bottom: 39vh;
 		    left: 78.5vw;
+		}
+		#all_open{
+			position: absolute;
+			bottom: 48vh;
+			left: 6vw;
+		}
+		#all_close{
+			position: absolute;
+		    bottom: 48vh;
+		    left: 79vw;
 		}
   }

@@ -176,6 +176,9 @@
                     <input id="fin3" type="submit" value="3" class="btn btn-primary"></input>
                     <input id="fin4" type="submit" value="4" class="btn btn-primary"></input>
                     <input id="fin5" type="submit" value="5" class="btn btn-primary"></input>
+
+                    <input id="all_open" type="submit" value="open" class="btn btn-primary"></input>
+                    <input id="all_close" type="submit" value="close" class="btn btn-primary"></input>
                     
 
               </div>
@@ -573,10 +576,10 @@
                     url: 'apis/send_data.php',
                     type: 'POST',
                     data: {
-                        data: "fin 1 open"
+                        data1: "fin 1 open"
                     },
                     success: function(response) {
-                        console.log(response);
+                        // console.log(response);
                         if (response == "fin 1 open")
                         {
                             console.log(response);
@@ -594,11 +597,11 @@
                     url: 'apis/send_data.php',
                     type: 'POST',
                     data: {
-                        data: "fin 2 open"
+                        data1: "fin 2 open"
                     },
                     success: function(response) {
-                        console.log(response);
-                        if (response == "fin 1 open")
+                        // console.log(response);
+                        if (response == "fin 2 open")
                         {
                             console.log(response);
                         }
@@ -615,11 +618,11 @@
                     url: 'apis/send_data.php',
                     type: 'POST',
                     data: {
-                        data: "fin 3 open"
+                        data1: "fin 3 open"
                     },
                     success: function(response) {
-                        console.log(response);
-                        if (response == "fin 1 open")
+                        // console.log(response);
+                        if (response == "fin 3 open")
                         {
                             console.log(response);
                         }
@@ -636,11 +639,11 @@
                     url: 'apis/send_data.php',
                     type: 'POST',
                     data: {
-                        data: "fin 4 open"
+                        data1: "fin 4 open"
                     },
                     success: function(response) {
-                        console.log(response);
-                        if (response == "fin 1 open")
+                        // console.log(response);
+                        if (response == "fin 4 open")
                         {
                             console.log(response);
                         }
@@ -657,11 +660,53 @@
                     url: 'apis/send_data.php',
                     type: 'POST',
                     data: {
-                        data: "fin 5 open"
+                        data1: "fin 5 open"
                     },
                     success: function(response) {
-                        console.log(response);
-                        if (response == "fin 1 open")
+                        // console.log(response);
+                        if (response == "fin 5 open")
+                        {
+                            console.log(response);
+                        }
+                        else
+                        {
+                           console.log("didnt get response");
+                        }
+                    }
+                });
+      });
+      $(document).on("click", "#all_close", function () {
+          //do a ajax call
+          $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        data1: "all close"
+                    },
+                    success: function(response) {
+                        // console.log(response);
+                        if (response == "all close")
+                        {
+                            console.log(response);
+                        }
+                        else
+                        {
+                           console.log("didnt get response");
+                        }
+                    }
+                });
+      });
+                  $(document).on("click", "#all_open", function () {
+          //do a ajax call
+          $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        data1: "all open"
+                    },
+                    success: function(response) {
+                        // console.log(response);
+                        if (response == "all open")
                         {
                             console.log(response);
                         }
