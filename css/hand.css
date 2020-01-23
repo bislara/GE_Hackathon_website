@@ -1,0 +1,68 @@
+#hand_img
+{
+	  height: 85vh;
+}
+
+#fin1{
+	position: absolute;
+	bottom: 42vh;
+    left: 23vw;
+}
+
+#fin2{
+	position: absolute;
+    bottom: 72vh;
+    left: 32vw;
+}
+
+#fin3{
+	position: absolute;
+    bottom: 74vh;
+    left: 38.5vw;
+}
+#fin4{
+	position: absolute;
+    bottom: 70vh;
+    left: 45vw;
+}
+#fin5{
+	position: absolute;
+    bottom: 60vh;
+    left: 50.5vw;
+}
+
+
+@media (max-width: 700px) {
+  	
+		#hand_img
+		{
+			width: 100%;
+		    height: 100%;
+		 	object-fit: contain;   
+		}
+		#fin1{
+			position: absolute;
+		    bottom: 27vh;
+		    left: 6vw;
+		}
+		#fin2{
+			position: absolute;
+		    bottom: 46vh;
+		    left: 30vw;
+		}
+		#fin3{
+			position: absolute;
+		    bottom: 48vh;
+		    left: 46.5vw;
+		}
+		#fin4{
+			position: absolute;
+		    bottom: 45vh;
+		    left: 66vw;
+		}
+		#fin5{
+			position: absolute;
+		    bottom: 39vh;
+		    left: 78.5vw;
+		}
+  }

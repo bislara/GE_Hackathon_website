@@ -22,6 +22,7 @@ $passwor=$_POST['pass'];
                 $_SESSION['user'] = $query_row['username'];
                 $_SESSION['login']=1;
                 $_SESSION['email']=$query_row['email'];
+                $_SESSION['user_id']=$query_row['user_id'];
                 session_regenerate_id(true);
                 echo 'success';
             

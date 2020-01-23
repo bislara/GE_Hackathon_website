@@ -20,6 +20,9 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
 
+    <link rel="stylesheet" href="css/hand.css">
+
+
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -121,9 +124,9 @@
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <div id="menu-login">
           <ul class="list-unstyled">
-          <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+          <li><a href="index.html"> <i class="icon-home"></i>Home </a></li>
           
-          <li><a href="manual.html"> <i class="icon-writing-whiteboard"></i>Manual Control </a></li>
+          <li class="active"><a href="manual.html"> <i class="icon-writing-whiteboard"></i>Manual Control </a></li>
           <li><a href="charts.html"> <i class="icon-paper-and-pencil"></i>Help </a></li>
           <li><a href="charts.html"> <i class="icon-info"></i>Emergency Contact </a></li>
           <li><a href="charts.html"> <i class="icon-padnote"></i>Instructions </a></li>
@@ -157,88 +160,52 @@
           </div>
         </div>
 
-        <div class="middle-deta" style="padding-bottom: 70vh;">
+        <div class="middle-deta" style="padding-bottom: 10vh;">
+
+          
+
         <section class="no-padding-top no-padding-bottom">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-3 col-sm-6">
-                <div class="statistic-block block">
-                  <div class="progress-details d-flex align-items-end justify-content-between">
-                    <div class="title">
-                      <div class="icon"><i class="icon-user-1"></i></div><strong>User Id</strong>
-                    </div>
-                    <div class="number dashtext-1 user-id"></div>
-                  </div>
-                  <!-- <div class="progress progress-template">
-                    <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
-                  </div> -->
-                </div>
+              <div class="col-md-12 col-sm-12">
+                <center>
+                  <img src="img/photos/fingers.png" id="hand_img">
+                </center>
+                    <input id="fin1" type="submit" value="1" class="btn btn-primary"></input>
+                    <input id="fin2" type="submit" value="2" class="btn btn-primary"></input>
+                    <input id="fin3" type="submit" value="3" class="btn btn-primary"></input>
+                    <input id="fin4" type="submit" value="4" class="btn btn-primary"></input>
+                    <input id="fin5" type="submit" value="5" class="btn btn-primary"></input>
+                    
+
               </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="statistic-block block">
-                  <div class="progress-details d-flex align-items-end justify-content-between">
-                    <div class="title">
-                      <div class="icon"><i class="icon-contract"></i></div><strong>New Projects</strong>
-                    </div>
-                    <div class="number dashtext-2">375</div>
-                  </div>
-                  <div class="progress progress-template">
-                    <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="statistic-block block">
-                  <div class="progress-details d-flex align-items-end justify-content-between">
-                    <div class="title">
-                      <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>New Invoices</strong>
-                    </div>
-                    <div class="number dashtext-3">140</div>
-                  </div>
-                  <div class="progress progress-template">
-                    <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="statistic-block block">
-                  <div class="progress-details d-flex align-items-end justify-content-between">
-                    <div class="title">
-                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>All Projects</strong>
-                    </div>
-                    <div class="number dashtext-4">41</div>
-                  </div>
-                  <div class="progress progress-template">
-                    <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
-                  </div>
-                </div>
-              </div>
+             
             </div>
           </div>
         </section>
-        <section class="no-padding-bottom">
+       <!--  <section class="no-padding-bottom">
           <div class="container-fluid">
             <div class="row">
 
-            <!--   <div class="col-lg-4">
+              <div class="col-lg-4">
                 <div class="bar-chart block no-margin-bottom">
                   <canvas id="barChartExample1"></canvas>
                 </div>
                 <div class="bar-chart block">
                   <canvas id="barChartExample2"></canvas>
                 </div>
-              </div> -->
+              </div>
 
               <div class="col-lg-12">
-                <!-- <div class="line-cahrt block"> -->
-                  <!-- <canvas id="lineCahrt"></canvas> -->
+                <div class="line-cahrt block">
+                  <canvas id="lineCahrt"></canvas>
                     <div id="chartContainer"></div>
 
-                <!-- </div> -->
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
       <!--   <section class="no-padding-bottom">
           <div class="container-fluid">
             <div class="row">
@@ -600,62 +567,17 @@
         
     </script>
     <script>
-      window.onload = function () {
-
-        var dps = []; // dataPoints
-
-
-
-        var chart = new CanvasJS.Chart("chartContainer", {
-          animationEnabled: true,
-          theme: "dark2",
-          title :{
-            text: "SENSOR DATA"
-          },
-          axisY: {
-            title: "data",
-            titleFontColor: "#6D78AD",
-            includeZero: false,
-            lineColor: "#e95f71",
-            gridThickness: 0,
-            
-          },
-          legend:{
-            verticalAlign: "top",
-            fontSize: 16,
-            dockInsidePlotArea: true
-          },      
-          data: [{
-            showInLegend: true,
-            type: "line",
-            name: "data 1",
-            dataPoints: dps
-          }]
-        });
-
-        var xVal = 0;
-        var yVal = 100; 
-        var updateInterval = 100;
-        var dataLength = 100; // number of dataPoints visible at any point
-        var threshold=150;
-        var updateChart = function (count) {
-
-          count = count || 1;
-
-          for (var j = 0; j < count; j++) {
-            yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-            if (yVal>threshold) 
-            {
-                //ajax request patheibi to a particular file for few interval
-                $.ajax({
+      $(document).on("click", "#fin1", function () {
+          //do a ajax call
+           $.ajax({
                     url: 'apis/send_data.php',
                     type: 'POST',
                     data: {
-                        limit: "limit crossed"
+                        data: "fin 1 open"
                     },
                     success: function(response) {
                         console.log(response);
-                        if (response == "limit crossed")
+                        if (response == "fin 1 open")
                         {
                             console.log(response);
                         }
@@ -665,31 +587,93 @@
                         }
                     }
                 });
-
-            }
-
-            dps.push({
-              x: xVal,
-              y: yVal
-            });
-            xVal++;
-          }
-
-          if (dps.length > dataLength) {
-            dps.shift();
-          }
-
-          chart.render();
-        };
-
-        updateChart(dataLength);
-        setInterval(function(){updateChart()}, updateInterval);
-
-        }
-
+      });
+      $(document).on("click", "#fin2", function () {
+          //do a ajax call
+          $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        data: "fin 2 open"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        if (response == "fin 1 open")
+                        {
+                            console.log(response);
+                        }
+                        else
+                        {
+                           console.log("didnt get response");
+                        }
+                    }
+                });
+      });
+      $(document).on("click", "#fin3", function () {
+          //do a ajax call
+          $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        data: "fin 3 open"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        if (response == "fin 1 open")
+                        {
+                            console.log(response);
+                        }
+                        else
+                        {
+                           console.log("didnt get response");
+                        }
+                    }
+                });
+      });
+      $(document).on("click", "#fin4", function () {
+          //do a ajax call
+          $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        data: "fin 4 open"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        if (response == "fin 1 open")
+                        {
+                            console.log(response);
+                        }
+                        else
+                        {
+                           console.log("didnt get response");
+                        }
+                    }
+                });
+      });
+      $(document).on("click", "#fin5", function () {
+          //do a ajax call
+          $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        data: "fin 5 open"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        if (response == "fin 1 open")
+                        {
+                            console.log(response);
+                        }
+                        else
+                        {
+                           console.log("didnt get response");
+                        }
+                    }
+                });
+      });
     </script>
-      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
+   
 
   </body>
 </html>
