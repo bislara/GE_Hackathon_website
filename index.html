@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.min.css">
 
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -228,8 +230,13 @@
                   <canvas id="barChartExample2"></canvas>
                 </div>
               </div> -->
+              
 
               <div class="col-lg-12">
+                <center style="padding-bottom: 3vh;">
+                  <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="10" data-slider-max="200" data-slider-step="1" data-slider-value="100"/>
+                  <span id="ex6CurrentSliderValLabel">Current Threshold Value: <span id="ex6SliderVal"></span></span>
+                </center>
                 <!-- <div class="line-cahrt block"> -->
                   <!-- <canvas id="lineCahrt"></canvas> -->
                     <div id="chartContainer"></div>
@@ -559,16 +566,41 @@
       </div>
     </div>
     <!-- JavaScript files-->
+    
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.min.js"></script>
+   
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-home.js"></script>
     <script src="js/front.js"></script>
+
+
     <script>
-        
+            $("#ex8").slider();
+            $("#ex6SliderVal").text("100");
+
+            $("#ex8").on("slide", function(slideEvt) {
+              $("#ex6SliderVal").text(slideEvt.value);
+            });
+    </script>
+    <script>
+      // With JQuery
+        // $("#ex8").bootstrapSlider({
+        //   // tooltip: 'always'
+        //    formatter: function(value) {
+        //       return 'Current value: ' + value;
+        //     }
+        // });
+              
+
+        // var slider = new Slider("#ex8", {
+        //   tooltip: 'always'
+        // });  
+
             $.ajax({
                 url: 'apis/check_login.php',
                 type: 'get',
@@ -644,6 +676,8 @@
 
           for (var j = 0; j < count; j++) {
             yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+            threshold=$("#ex6SliderVal").text();
+            console.log(threshold);
             if (yVal>threshold) 
             {
                 //ajax request patheibi to a particular file for few interval

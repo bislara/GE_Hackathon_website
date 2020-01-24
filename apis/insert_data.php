@@ -12,7 +12,7 @@ include 'db.php';
     	$status = $_POST['status'];
     	$station = $_POST['station'];
 
-	    $sql = "INSERT INTO logs (station, status, Date, Time)
+	    $sql = "INSERT INTO  (station, status, Date, Time)
 		
 		VALUES ('".$station."', '".$status."', '".$d."', '".$t."')";
 
