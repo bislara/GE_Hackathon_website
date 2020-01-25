@@ -7,6 +7,10 @@
 	position: absolute;
 	bottom: 42vh;
     left: 23vw;
+    /*box-shadow: 2px -2px 30px #ffc107;*/
+  	/*transition: all 0.3s ease 0s;*/
+  	cursor: pointer;
+  
 }
 
 #fin2{

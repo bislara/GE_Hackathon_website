@@ -93,19 +93,43 @@ include 'db.php';
                 $query = mysqli_query($conn,"UPDATE fingers SET status='1' WHERE fin_no='$i'");              
             }
         }
-        // echo(json_encode(array("command"=>$command,"name"=>$name)));
-        echo $command;   
+        $query2 = "SELECT * FROM fingers";
+        $res1 = mysqli_query($conn, $query2);
+
+        $response["fingers"] = array();
+     
+        // While loop to store all the returned response in variable
+        while ($row = mysqli_fetch_array($res1,MYSQLI_ASSOC)) {
+            // temperoary user array
+            $led = array();
+            $led["id"] = $row["fin_no"];
+            $led["status"] = $row["status"];
+
+            // Push all the items 
+            array_push($response["fingers"], $led);
+        }
+        // On success
+        $response["success"] = 1;
+     
+        // Show JSON response
+        echo json_encode($response);
+
+
+        // $row1 = mysqli_fetch_array($res1, MYSQLI_ASSOC);
+
+        // echo(json_encode(array("statuses"=>$row1)));
+        // echo $row;   
     }
     else if(!empty($_POST['limit']))
     {
            if ($_POST['limit']=="limit crossed") {
                 for ($i=1; $i <6 ; $i++) { 
-                    $query = mysqli_query($conn,"UPDATE fingers SET status='1' WHERE fin_no='$i'");           
+                    $query = mysqli_query($conn,"UPDATE fingers SET status='0' WHERE fin_no='$i'");           
                 }               
            }
            else if ($_POST['limit']=="all fine") {
                 for ($i=1; $i <6 ; $i++) { 
-                    $query = mysqli_query($conn,"UPDATE fingers SET status='0' WHERE fin_no='$i'");           
+                    $query = mysqli_query($conn,"UPDATE fingers SET status='1' WHERE fin_no='$i'");           
                 }               
            }
 

@@ -127,9 +127,9 @@
           <li><a href="index.html"> <i class="icon-home"></i>Home </a></li>
           
           <li class="active"><a href="manual.html"> <i class="icon-writing-whiteboard"></i>Manual Control </a></li>
-          <li><a href="charts.html"> <i class="icon-paper-and-pencil"></i>Help </a></li>
-          <li><a href="charts.html"> <i class="icon-info"></i>Emergency Contact </a></li>
-          <li><a href="charts.html"> <i class="icon-padnote"></i>Instructions </a></li>
+          <li><a href="help.html"> <i class="icon-paper-and-pencil"></i>Help </a></li>
+          <li><a href="emergency.html"> <i class="icon-info"></i>Emergency Contact </a></li>
+          <li><a href="instructions.html"> <i class="icon-padnote"></i>Instructions </a></li>
           <!-- <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
           <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -568,6 +568,30 @@
         
     </script>
     <script>
+
+              $.ajax({
+                    url: 'apis/send_data.php',
+                    type: 'POST',
+                    data: {
+                        data1: "get details"
+                    },
+                    success: function(response) {
+                        response = JSON.parse(response);
+                        console.log("details")
+                        console.log(response.fingers);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
+                        }
+      
+                    }
+                });
+
       $(document).on("click", "#fin1", function () {
           //do a ajax call
            $.ajax({
@@ -577,15 +601,19 @@
                         data1: "fin 1 open"
                     },
                     success: function(response) {
-                        // console.log(response);
-                        if (response == "fin 1 open")
-                        {
-                            console.log(response);
+                        response = JSON.parse(response);
+                        console.log("fin 1")
+                        console.log(response.fingers[0]["status"]);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
                         }
-                        else
-                        {
-                           console.log("didnt get response");
-                        }
+      
                     }
                 });
       });
@@ -598,14 +626,17 @@
                         data1: "fin 2 open"
                     },
                     success: function(response) {
-                        // console.log(response);
-                        if (response == "fin 2 open")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
+                        response = JSON.parse(response);
+                        console.log("fin 2")
+                        console.log(response.fingers[1]["status"]);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
                         }
                     }
                 });
@@ -619,14 +650,17 @@
                         data1: "fin 3 open"
                     },
                     success: function(response) {
-                        // console.log(response);
-                        if (response == "fin 3 open")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
+                        response = JSON.parse(response);
+                        console.log("fin 3")
+                        console.log(response.fingers[2]["status"]);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
                         }
                     }
                 });
@@ -640,14 +674,17 @@
                         data1: "fin 4 open"
                     },
                     success: function(response) {
-                        // console.log(response);
-                        if (response == "fin 4 open")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
+                        response = JSON.parse(response);
+                        console.log("fin 4")
+                        console.log(response.fingers[3]["status"]);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
                         }
                     }
                 });
@@ -662,13 +699,17 @@
                     },
                     success: function(response) {
                         // console.log(response);
-                        if (response == "fin 5 open")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
+                        response = JSON.parse(response);
+                        console.log("fin 5")
+                        console.log(response.fingers[4]["status"]);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
                         }
                     }
                 });
@@ -682,14 +723,17 @@
                         data1: "all close"
                     },
                     success: function(response) {
-                        // console.log(response);
-                        if (response == "all close")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
+                        response = JSON.parse(response);
+                        console.log("all close")
+                        // console.log(response.fingers[0]["status"]);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
                         }
                     }
                 });
@@ -703,14 +747,17 @@
                         data1: "all open"
                     },
                     success: function(response) {
-                        // console.log(response);
-                        if (response == "all open")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
+                        response = JSON.parse(response);
+                        console.log("all open")
+                        // console.log(response.fingers[0]["status"]);
+                        for (var i = 0; i < 5; i++) {
+                          var fin_no="#fin"+ (i+1).toString();
+                          if (response.fingers[i]["status"]=="1") {
+                            $(fin_no).css("box-shadow", "2px -2px 30px #ffc107");
+                          }
+                          else
+                            $(fin_no).css("box-shadow", "0px 0px 0px white");
+                            
                         }
                     }
                 });
