@@ -22,6 +22,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.min.css">
 
+    <style>
+      
+      .card_shadow:hover {
+        box-shadow: 10px 10px 8px 0 rgba(0, 0, 0, 0.2), 10px 10px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+    </style>
+
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -159,7 +167,7 @@
           </div>
         </div>
 
-        <div class="middle-deta" style="padding-bottom: 70vh;">
+        <div class="middle-deta" style="padding-bottom: 5vh;">
         
         <section class="no-padding-bottom">
           <div class="container-fluid">
@@ -169,6 +177,51 @@
 
               <div class="col-lg-12">
               
+              <h2 align="center"><b>EMERGENCY CONTACTS</b></h2><br>
+
+              <div class="row">
+
+                <div class="col-lg-4">
+                <div class="card card_shadow" >
+                <img class="card-img-top" src="img/avatar-2.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="card-title">Doctor 1</h4>
+                  <p class="card-text">Contact Number: 94949949494<br>
+                    Email ID: abc@company.com
+                  </p>
+                  <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+              </div>
+              </div>
+              
+                <div class="col-lg-4">
+              <div class="card card_shadow">
+                <div class="card-body">
+                  <h4 class="card-title">Doctor 2</h4>
+                   <p class="card-text">Contact Number: 94949949494<br>
+                    Email ID: abc@company.com
+                  </p>
+                  <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+                <img class="card-img-bottom" src="img/avatar-3.jpg" alt="Card image" style="width:100%">
+              </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="card card_shadow">
+                <img class="card-img-top" src="img/avatar-4.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="card-title">Doctor 3</h4>
+                   <p class="card-text">Contact Number: 94949949494<br>
+                    Email ID: abc@company.com
+                  </p>
+                  <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+              </div>
+              </div>
+
+            </div>
+
               </div>
             </div>
           </div>
@@ -262,118 +315,7 @@
             });
         
     </script>
-    <script>
-      window.onload = function () {
-
-        var dps = []; // dataPoints
-
-
-
-        var chart = new CanvasJS.Chart("chartContainer", {
-          animationEnabled: true,
-          theme: "dark2",
-          title :{
-            text: "SENSOR DATA"
-          },
-          axisY: {
-            title: "data",
-            titleFontColor: "#6D78AD",
-            includeZero: false,
-            lineColor: "#e95f71",
-            gridThickness: 0,
-            
-          },
-          legend:{
-            verticalAlign: "top",
-            fontSize: 16,
-            dockInsidePlotArea: true
-          },      
-          data: [{
-            showInLegend: true,
-            type: "line",
-            name: "data 1",
-            dataPoints: dps
-          }]
-        });
-
-        var xVal = 0;
-        var yVal = 100; 
-        var updateInterval = 1000;
-        var dataLength = 100; // number of dataPoints visible at any point
-        var threshold=150;
-        var updateChart = function (count) {
-
-          count = count || 1;
-
-          for (var j = 0; j < count; j++) {
-            yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-            threshold=$("#ex6SliderVal").text();
-            console.log(threshold);
-            if (yVal>threshold) 
-            {
-                //ajax request patheibi to a particular file for few interval
-                $.ajax({
-                    url: 'apis/send_data.php',
-                    type: 'POST',
-                    data: {
-                        limit: "limit crossed"
-                    },
-                    success: function(response) {
-                        // console.log(response);
-                        if (response == "limit crossed")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
-                        }
-                    }
-                });
-
-            }
-            else
-            {
-                $.ajax({
-                    url: 'apis/send_data.php',
-                    type: 'POST',
-                    data: {
-                        limit: "all fine"
-                    },
-                    success: function(response) {
-                        // console.log(response);
-                        if (response == "all fine")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
-                        }
-                    }
-                });
-            }
-
-            dps.push({
-              x: xVal,
-              y: yVal
-            });
-            xVal++;
-          }
-
-          if (dps.length > dataLength) {
-            dps.shift();
-          }
-
-          chart.render();
-        };
-
-        updateChart(dataLength);
-        setInterval(function(){updateChart()}, updateInterval);
-
-        }
-
-    </script>
+    
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
