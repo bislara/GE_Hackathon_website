@@ -116,7 +116,7 @@
         <div class="sidebar-header d-flex align-items-center">
           <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
-            <h1 class="h5" class="user-name">User</h1>
+            <h1 class="h5 user-name">User</h1>
             <p id="user-email">Email</p>
           </div>
         </div>
@@ -124,10 +124,11 @@
         <div id="menu-login">
           <ul class="list-unstyled">
           <li><a href="index.html"> <i class="icon-writing-whiteboard"></i>Profile</a></li>
-          <li><a href="data.html"> <i class="icon-home"></i>Data </a></li>
+          <li class="active"><a href="date.html"> <i class="icon-home"></i>Data </a></li>
+          
           <li><a href="manual.html"> <i class="icon-writing-whiteboard"></i>Manual Control </a></li>
           <li><a href="help.html"> <i class="icon-paper-and-pencil"></i>Help </a></li>
-          <li  class="active"><a href="emergency.html"> <i class="icon-info"></i>Emergency Contact </a></li>
+          <li><a href="emergency.html"> <i class="icon-info"></i>Emergency Contact </a></li>
           <li><a href="instructions.html"> <i class="icon-padnote"></i>Instructions </a></li>
           <!-- <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
           <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
@@ -160,20 +161,123 @@
         </div>
 
         <div class="middle-deta" style="padding-bottom: 70vh;">
-        
-        <section class="no-padding-bottom">
+        <section class="no-padding-top no-padding-bottom">
           <div class="container-fluid">
             <div class="row">
 
-              
-
-              <div class="col-lg-12">
-              
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-user-1"></i></div><strong class="but1">Sensor Data</strong>
+                    </div>
+                  </div>
+                  <!-- <div class="progress progress-template">
+                    <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
+                  </div> -->
+                </div>
               </div>
+
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-contract"></i></div><strong class="but2">Burst Duration</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong class="but3">Magnitude</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong class="but4">Synchronisation</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
-     
+        <section class="no-padding-bottom">
+          <div class="container-fluid">
+
+            <div class="row">
+
+            <!--   <div class="col-lg-4">
+                <div class="bar-chart block no-margin-bottom">
+                  <canvas id="barChartExample1"></canvas>
+                </div>
+                <div class="bar-chart block">
+                  <canvas id="barChartExample2"></canvas>
+                </div>
+              </div> -->
+              
+
+              <div class="col-lg-12" id="graph1" style="display: block;">
+                <center style="padding-bottom: 3vh;">
+                  <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="10" data-slider-max="1000" data-slider-step="1" data-slider-value="100"/>
+                  <span id="ex6CurrentSliderValLabel">Current Threshold Value: <span id="ex6SliderVal"></span></span>
+                </center>
+                <!-- <div class="line-cahrt block"> -->
+                  <!-- <canvas id="lineCahrt"></canvas> -->
+                    <div id="chartContainer"></div>
+
+                <!-- </div> -->
+              </div>
+              
+              <div class="col-lg-12" id="graph11" style="display: none;">
+                    <div id="chartContainer11"></div>
+              </div>
+
+              <div class="col-lg-12" id="graph12" style="display: none;">
+                    <div id="chartContainer12"></div>
+              </div>
+
+              <div class="col-lg-12" id="graph13" style="display: none;">
+                    <div id="chartContainer13"></div>
+              </div>
+          
+              
+                
+                <div class="col-lg-12" style="padding-top: 70vh;" id="graph2">
+                  
+                  <!-- <div class="line-cahrt block"> -->
+                    <!-- <canvas id="lineCahrt"></canvas> -->
+                      <div id="chart_eeg"></div>
+
+                  <!-- </div> -->
+                </div>
+
+                <div class="col-lg-12" style="padding-top: 70vh;" id="graph3">
+                  
+                  <!-- <div class="line-cahrt block"> -->
+                    <!-- <canvas id="lineCahrt"></canvas> -->
+                      <div id="chart_eeg2"></div>
+
+                  <!-- </div> -->
+                </div>
+            
+            
+
+            </div>
+
+
+          </div>
+        </section>
+      
         </div>
 
         <div class="middle-login">
@@ -208,6 +312,7 @@
     
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/charts_plot.js"></script>
 
 
     <script>
@@ -237,7 +342,7 @@
                 type: 'get',
                 success: function(response) {
                     response = JSON.parse(response);
-                    console.log(response);
+                    console.log(response.name);
                     if (response.status == "success") {
                         
                         $('#login_check').html('Logout').attr('href', 'apis/logout.php')
@@ -255,126 +360,12 @@
                         $('.middle-login').show();
                         $('#menu-login').hide();
 
-
-
                     }
                 }
             });
         
     </script>
-    <script>
-      window.onload = function () {
-
-        var dps = []; // dataPoints
-
-
-
-        var chart = new CanvasJS.Chart("chartContainer", {
-          animationEnabled: true,
-          theme: "dark2",
-          title :{
-            text: "SENSOR DATA"
-          },
-          axisY: {
-            title: "data",
-            titleFontColor: "#6D78AD",
-            includeZero: false,
-            lineColor: "#e95f71",
-            gridThickness: 0,
-            
-          },
-          legend:{
-            verticalAlign: "top",
-            fontSize: 16,
-            dockInsidePlotArea: true
-          },      
-          data: [{
-            showInLegend: true,
-            type: "line",
-            name: "data 1",
-            dataPoints: dps
-          }]
-        });
-
-        var xVal = 0;
-        var yVal = 100; 
-        var updateInterval = 1000;
-        var dataLength = 100; // number of dataPoints visible at any point
-        var threshold=150;
-        var updateChart = function (count) {
-
-          count = count || 1;
-
-          for (var j = 0; j < count; j++) {
-            yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-            threshold=$("#ex6SliderVal").text();
-            console.log(threshold);
-            if (yVal>threshold) 
-            {
-                //ajax request patheibi to a particular file for few interval
-                $.ajax({
-                    url: 'apis/send_data.php',
-                    type: 'POST',
-                    data: {
-                        limit: "limit crossed"
-                    },
-                    success: function(response) {
-                        // console.log(response);
-                        if (response == "limit crossed")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
-                        }
-                    }
-                });
-
-            }
-            else
-            {
-                $.ajax({
-                    url: 'apis/send_data.php',
-                    type: 'POST',
-                    data: {
-                        limit: "all fine"
-                    },
-                    success: function(response) {
-                        // console.log(response);
-                        if (response == "all fine")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
-                        }
-                    }
-                });
-            }
-
-            dps.push({
-              x: xVal,
-              y: yVal
-            });
-            xVal++;
-          }
-
-          if (dps.length > dataLength) {
-            dps.shift();
-          }
-
-          chart.render();
-        };
-
-        updateChart(dataLength);
-        setInterval(function(){updateChart()}, updateInterval);
-
-        }
-
-    </script>
-      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
   </body>
