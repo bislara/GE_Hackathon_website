@@ -22,14 +22,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.min.css">
 
-    <style>
-      
-      .card_shadow:hover {
-        box-shadow: 10px 10px 8px 0 rgba(0, 0, 0, 0.2), 10px 10px 20px 0 rgba(0, 0, 0, 0.19);
-      }
-
-    </style>
-
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -133,9 +125,10 @@
           <ul class="list-unstyled">
           <li><a href="index.html"> <i class="icon-writing-whiteboard"></i>Profile</a></li>
           <li><a href="data.html"> <i class="icon-home"></i>Data </a></li>
+          
           <li><a href="manual.html"> <i class="icon-writing-whiteboard"></i>Manual Control </a></li>
-          <li><a href="help.html"> <i class="icon-paper-and-pencil"></i>Training Report</a></li>
-          <li  class="active"><a href="emergency.html"> <i class="icon-info"></i>Emergency Contact </a></li>
+          <li  class="active"><a href="help.html"> <i class="icon-paper-and-pencil"></i>Training Report </a></li>
+          <li><a href="emergency.html"> <i class="icon-info"></i>Emergency Contact </a></li>
           <li><a href="instructions.html"> <i class="icon-padnote"></i>Instructions </a></li>
           <!-- <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
           <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
@@ -167,7 +160,7 @@
           </div>
         </div>
 
-        <div class="middle-deta" style="padding-bottom: 5vh;">
+        <div class="middle-deta" style="padding-bottom: 70vh;">
         
         <section class="no-padding-bottom">
           <div class="container-fluid">
@@ -176,51 +169,32 @@
               
 
               <div class="col-lg-12">
-              
-              <h2 align="center"><b>EMERGENCY CONTACTS</b></h2><br>
+                <center>
+                  <h2>REPORT DETAILS</h2>
+                  <br>
+                  
+                  <div class="col-lg-12">
+                    <div id="chartContainer"></div>
+                  </div>
 
-              <div class="row">
+                   <div class="col-lg-12" style="padding-top: 70vh;">
+                    <div id="chartContainer11"></div>
+                  </div>
+                  <br>
+                  <div class="col-lg-12" style="padding-top: 70vh;">
+                    <h2>User Feedback</h2><br>
 
-                <div class="col-lg-4">
-                <div class="card card_shadow" >
-                <img class="card-img-top" src="img/avatar-2.jpg" alt="Card image" style="width:100%">
-                <div class="card-body">
-                  <h4 class="card-title">Doctor 1</h4>
-                  <p class="card-text">Contact Number: 94949949494<br>
-                    Email ID: abc@company.com
-                  </p>
-                  <a href="#" class="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-              </div>
-              
-                <div class="col-lg-4">
-              <div class="card card_shadow">
-                <div class="card-body">
-                  <h4 class="card-title">Doctor 2</h4>
-                   <p class="card-text">Contact Number: 94949949494<br>
-                    Email ID: abc@company.com
-                  </p>
-                  <a href="#" class="btn btn-primary">See Profile</a>
-                </div>
-                <img class="card-img-bottom" src="img/avatar-3.jpg" alt="Card image" style="width:100%">
-              </div>
-              </div>
+                    <h4><u>Training Feedback: </u>  : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h4>
+                    <h4><u>Brief description of treatment already given</u> : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h4><br><br>
+                      <h4>Grade (out of 10) : 8.5</h4>
+                  </div>
 
-              <div class="col-lg-4">
-                <div class="card card_shadow">
-                <img class="card-img-top" src="img/avatar-4.jpg" alt="Card image" style="width:100%">
-                <div class="card-body">
-                  <h4 class="card-title">Doctor 3</h4>
-                   <p class="card-text">Contact Number: 94949949494<br>
-                    Email ID: abc@company.com
-                  </p>
-                  <a href="#" class="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-              </div>
 
-            </div>
+                  <!-- <div class="col-lg-12" style="padding-top: 70vh;" id="graph2">
+                      <div id="chartContainer2"></div>
+                </div> -->
+
+                </center>
 
               </div>
             </div>
@@ -261,6 +235,7 @@
     
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/report_chart.js"></script>
 
 
     <script>
@@ -315,8 +290,8 @@
             });
         
     </script>
-    
-      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
   </body>

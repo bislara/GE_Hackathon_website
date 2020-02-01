@@ -127,7 +127,7 @@
           <li><a href="data.html"> <i class="icon-home"></i>Data </a></li>
           
           <li><a href="manual.html"> <i class="icon-writing-whiteboard"></i>Manual Control </a></li>
-          <li  class="active"><a href="help.html"> <i class="icon-paper-and-pencil"></i>Help </a></li>
+          <li  class="active"><a href="help.html"> <i class="icon-paper-and-pencil"></i>Training Report </a></li>
           <li><a href="emergency.html"> <i class="icon-info"></i>Emergency Contact </a></li>
           <li><a href="instructions.html"> <i class="icon-padnote"></i>Instructions </a></li>
           <!-- <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
@@ -169,7 +169,67 @@
               
 
               <div class="col-lg-12">
-              
+                <center>
+                  <h2>TRAINING REPORT</h2>
+                  <br>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Sl.No</th>
+                        <th>Training Report</th>
+                        <th>Duration</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td colspan=4 style="text-align:center;">January 2020</td>
+                      </tr>
+                      <tr>
+                        <td>1.</td>
+                        <td><a href="report.html">Report 1</a></td>
+                        <td>90 min</td>
+                        <td>10 Jan</td>
+                        <td>10 AM</td>
+                      </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td><a href="report.html">Report 2</a></td>
+                        <td>15 Jan</td>
+                        <td>60 min</td>
+                        <td>10 AM</td>
+                      </tr>
+                      <tr>
+                        <td>3.</td>
+                        <td><a href="report.html">Report 3</a></td>
+                        <td>25 Jan</td>
+                        <td>50 min</td>
+                        <td>10 AM</td>
+                      </tr>
+                      <tr>
+                        <td colspan=4 style="text-align:center;">February 2020</td>
+                      </tr>
+                      <tr>
+                        <td>4.</td>
+                        <td><a href="report.html">Report 4</a></td>
+                        <td>70 min</td>
+                        <td>5 Feb</td>
+                        <td>11 AM</td>
+                      </tr>
+                      <tr>
+                        <td>5.</td>
+                        <td><a href="report.html">Report 5</a></td>
+                        <td>15 Feb</td>
+                        <td>80 min</td>
+                        <td>12 AM</td>
+                      </tr>
+                      <tr>
+                    </tbody>
+                  </table>
+
+                </center>
+
               </div>
             </div>
           </div>
@@ -263,118 +323,7 @@
             });
         
     </script>
-    <script>
-      window.onload = function () {
-
-        var dps = []; // dataPoints
-
-
-
-        var chart = new CanvasJS.Chart("chartContainer", {
-          animationEnabled: true,
-          theme: "dark2",
-          title :{
-            text: "SENSOR DATA"
-          },
-          axisY: {
-            title: "data",
-            titleFontColor: "#6D78AD",
-            includeZero: false,
-            lineColor: "#e95f71",
-            gridThickness: 0,
-            
-          },
-          legend:{
-            verticalAlign: "top",
-            fontSize: 16,
-            dockInsidePlotArea: true
-          },      
-          data: [{
-            showInLegend: true,
-            type: "line",
-            name: "data 1",
-            dataPoints: dps
-          }]
-        });
-
-        var xVal = 0;
-        var yVal = 100; 
-        var updateInterval = 1000;
-        var dataLength = 100; // number of dataPoints visible at any point
-        var threshold=150;
-        var updateChart = function (count) {
-
-          count = count || 1;
-
-          for (var j = 0; j < count; j++) {
-            yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-            threshold=$("#ex6SliderVal").text();
-            console.log(threshold);
-            if (yVal>threshold) 
-            {
-                //ajax request patheibi to a particular file for few interval
-                $.ajax({
-                    url: 'apis/send_data.php',
-                    type: 'POST',
-                    data: {
-                        limit: "limit crossed"
-                    },
-                    success: function(response) {
-                        // console.log(response);
-                        if (response == "limit crossed")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
-                        }
-                    }
-                });
-
-            }
-            else
-            {
-                $.ajax({
-                    url: 'apis/send_data.php',
-                    type: 'POST',
-                    data: {
-                        limit: "all fine"
-                    },
-                    success: function(response) {
-                        // console.log(response);
-                        if (response == "all fine")
-                        {
-                            console.log(response);
-                        }
-                        else
-                        {
-                           console.log("didnt get response");
-                        }
-                    }
-                });
-            }
-
-            dps.push({
-              x: xVal,
-              y: yVal
-            });
-            xVal++;
-          }
-
-          if (dps.length > dataLength) {
-            dps.shift();
-          }
-
-          chart.render();
-        };
-
-        updateChart(dataLength);
-        setInterval(function(){updateChart()}, updateInterval);
-
-        }
-
-    </script>
+   
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
